@@ -24,5 +24,11 @@ jobs:
           git config --local user.name "YinheeeChen"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
-          git commit --allow-empty -m "a commit a day keeps your girlfriend away"
+          
+          arr=$((RANDOM % 20 + 1))
+          
+          for i in $(seq 1 $arr); do
+            git commit --allow-empty -m "a commit a day keeps your girlfriend away"
+          done
+          
           git push
